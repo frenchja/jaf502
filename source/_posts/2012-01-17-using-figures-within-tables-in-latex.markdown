@@ -114,7 +114,7 @@ figures to vertically align according to their center. Below, I surround each `\
 \end{table}
 {% endcodeblock %}
 Output:
-{% img center http://cogdev.psych.northwestern.edu/blog/images/latex_table_1.png 'Broken LaTeX Table' %}
+{% img center /images/origins.png 'Broken LaTeX Table' %}
 
 By using `\parbox`, figures are now vertically aligned with text cells. However, with the addition of figures the table
 is too long and we must span the table across 2-pages. To solve this, split the information across two tables. In this
