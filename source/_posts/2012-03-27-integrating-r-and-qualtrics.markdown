@@ -1,15 +1,13 @@
 ---
 layout: post
-title: "Integrating R and Qualtrics using Github Packages"
+title: "Analyzing Qualtrics Data in R using Github Packages"
 date: 2012-03-27 14:23
 comments: true
 author: Jason A. French
 categories: [R, Github, Development, Qualtrics]
 ---
-
-## Overview
 [Qualtrics](http://www.qualtrics.com/) is an online survey platform similar to SurveyMonkey that is used by researchers to
-collect data.  Until recently, one had to manually download the data in either SPSS or .csv format, making on-line data
+collect data.  Until recently, one had to manually download the data in either SPSS or .csv format, making ongoing data
 analysis difficult to check whether the trend of the incoming data supports the hypothesis.
 
 [Jason Bryer](http://bryer.org/) has recently 
@@ -19,7 +17,7 @@ with other experimental data collected in the lab and, by running an Rscript as 
 analyses in R.  I'll demonstrate the use of this package below.
 <!-- more -->
 ## Installing the Qualtrics Package from Github
-{% codeblock lang:r %}
+{% codeblock Installing Qualtrics lang:r %}
 #!/usr/bin/env Rscript
 # Authors:  Jason A. French
 # Email:    frenchja@u.northwestern.edu
@@ -68,7 +66,7 @@ qualtrics.data <- getSurveyResults(username=qualtrics.user,
 Again, if you are distributing the analysis to collaborators, you may want to use a setup like below, which reads the user and 
 password securely.  If you want to automate this, you'll obviously need hardcode your username and password.  At this time,
 I don't believe R has a hashing mechanism for passwords like Python, meaning you'll need to have a plaintext password.
-{% codeblock lang:r %}
+{% codeblock Password Protection for the Paranoid lang:r %}
 # Get Qualtrics Survey Data
 # Not sure this will work in R.app.  Only in Terminal.app
 get_password <- function() {

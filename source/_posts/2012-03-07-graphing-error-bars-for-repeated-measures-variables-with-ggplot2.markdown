@@ -6,8 +6,6 @@ comments: true
 categories: [R, ggplot2, repeated-measures]
 published: true
 ---
-
-## Overview
 When presenting data, confidence intervals and error bars let the audience know the amount of uncertainty in the data, and
 see how much of the variance is explained by the reported effect of an experiment.  While this is straightforward for
 between-subject variables, it's less clear for mixed- and repeated-measures designs.
