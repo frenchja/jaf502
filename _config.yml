@@ -4,10 +4,17 @@
 
 url: http://gradstudents.wcas.northwestern.edu/~jaf502/
 title: Jason A. French
+<<<<<<< HEAD
 subtitle: Personality, Motivation, & Cognition
 author: Jason A. French
 simple_search: http://google.com/search
 description: Research blog by Jason A. French
+=======
+subtitle: Cognitive Development Lab
+author: Jason A. French
+simple_search: http://google.com/search
+description: Research blog by Jason A. French - Graduate Student at Northwestern University
+>>>>>>> 8d4aaa305143eee379c2f187991382de82948dd1
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -16,7 +23,7 @@ description: Research blog by Jason A. French
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: /~jaf502/atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
 email: frenchja@gmail.com
@@ -26,10 +33,14 @@ email: frenchja@gmail.com
 # ----------------------- #
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+<<<<<<< HEAD
 root: /~jaf502/
+=======
+root: /~jaf502
+>>>>>>> 8d4aaa305143eee379c2f187991382de82948dd1
 permalink: /blog/:year/:month/:day/:title/
 source: source
-destination: public
+destination: public/~jaf502
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
@@ -59,7 +70,11 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 
 # Github repositories
 github_user: frenchja
+<<<<<<< HEAD
 github_repo_count: 4
+=======
+github_repo_count: 0
+>>>>>>> 8d4aaa305143eee379c2f187991382de82948dd1
 github_show_profile_link: true
 github_skip_forks: true
 
