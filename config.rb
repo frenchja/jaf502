@@ -4,10 +4,10 @@ require 'sass-globbing'
 project_type = :stand_alone
 
 # Publishing paths
-http_path = "/~jaf502/"
-http_images_path = "/~jaf502/images"
-http_fonts_path = "/~jaf502/fonts"
-css_dir = "public/~jaf502/stylesheets"
+http_path = "/"
+http_images_path = "/images"
+http_fonts_path = "/fonts"
+css_dir = "public/stylesheets"
 
 # Local development paths
 sass_dir = "sass"
