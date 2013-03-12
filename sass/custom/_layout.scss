@@ -19,3 +19,10 @@
 //$sidebar-pad-medium: 15px;
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
+
+
+body > header h1:before {
+	background-image:url('http://www.northwestern.edu/images/nu-logo.png');
+    background-repeat:no-repeat;
+}
+

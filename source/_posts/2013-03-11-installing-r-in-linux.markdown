@@ -88,7 +88,12 @@ RedHat-based Distributions
 --------------------------
 ### RedHat EL6 (or CentOS 6+)
 
-In order to get R running on RHEL 6, we'll need to add an additional repository that allows us to install the new packages, EPEL.  [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL) (or EPEL) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL). 
+In order to get R running on RHEL 6, we'll need to add an additional repository
+that allows us to install the new packages, EPEL.  [Extra Packages for
+Enterprise Linux](https://fedoraproject.org/wiki/EPEL) (or EPEL) is a Fedora
+Special Interest Group that creates, maintains, and manages a high quality set
+of additional packages for Enterprise Linux, including, but not limited to, Red
+Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL).
 
 ``` bash Installing EPEL
 # For El5 or CentOS 5
@@ -126,18 +131,41 @@ sudo yum install http://download1.rstudio.org/rstudio-0.97.320-x86_64.rpm
 Dealing with PPC-based Systems
 ==============================
 
-As our lab has a lot of old iMacs that are still quite useful, I've recently dealt with the best way to support R on these machines.  These machines are still quite useful, particulary when their maximum potential RAM is installed.  However, Apple stopped supporting the machines after OS 10.5.8 ([see here](https://en.wikipedia.org/wiki/Apple%27s_transition_to_Intel_processors)).  While the [nightly packages](http://r.research.att.com/) distributed do install on PPC machines with OS X, they lack the R Framework compiled for PPC, meaning that it's a useless installation.  This means that a user stuck on OS X 10.5.8 is tied to R 2.10, a very old R distribution that's incompatible with many existing packages.
+As our lab has a lot of old iMacs that are still quite useful, I've recently
+dealt with the best way to support R on these machines.  These machines are
+still quite useful, particulary when their maximum potential RAM is installed.
+However, Apple stopped supporting the machines after OS 10.5.8 ([see
+here](https://en.wikipedia.org/wiki/Apple%27s_transition_to_Intel_processors)).
+While the [nightly packages](http://r.research.att.com/) distributed do install
+on PPC machines with OS X, they lack the R Framework compiled for PPC, meaning
+that it's a useless installation.  This means that a user stuck on OS X 10.5.8
+is tied to R 2.10, a very old R distribution that's incompatible with many
+existing packages.
 
 Any solutions?
 --------------
 
-My first solution was to compile R from source using [MacPorts](https://www.macports.org/), a package manager similar in concept to `yum` or `apt-get`.  While successful, it takes a *long*, *long*, time to build R and its necessary dependencies on a 1.8 Ghz G5 processor.  From a system administrator's perspective, this also is the least parsimonious solution possible, since each machine has to be updated with each new release of R.
+My first solution was to compile R from source using
+[MacPorts](https://www.macports.org/), a package manager similar in concept to
+`yum` or `apt-get`.  While successful, it takes a *long*, *long*, time to build
+R and its necessary dependencies on a 1.8 Ghz G5 processor.  From a system
+administrator's perspective, this also is the least parsimonious solution
+possible, since each machine has to be updated with each new release of R.
 
-Thanks to [RStudio Server](http://www.rstudio.com/ide/docs/server/getting_started), each machine doesn't need to have R installed, as it can be run off a more powerful server and accessed using a reasonably up-to-date browser.  I was able to install R and RStudio on our RedHat EL6 server easily.  The trick was to make this as seemless as possible from the user's perspective.  To accomplish this, I saved the Bookmark to the Desktop. 
+Thanks to [RStudio
+Server](http://www.rstudio.com/ide/docs/server/getting_started), each machine
+doesn't need to have R installed, as it can be run off a more powerful server
+and accessed using a reasonably up-to-date browser.  I was able to install R and
+RStudio on our RedHat EL6 server easily.  The trick was to make this as seemless
+as possible from the user's perspective.  To accomplish this, I saved the
+Bookmark to the Desktop.
 
 {% img right http://gradstudents.wcas.northwestern.edu/~jaf502/images/ppc-r-bookmark.png R Bookmark %}
 
-Next, I downloaded a large R icon using Google Images and edited the Bookmark's icon to appear as if it were R.  To do this, just copy the R icon from within Preview, select the icon of the Bookmark by right-clicking and selecting Get Info, and pasting using `Command+V`.  
+Next, I downloaded a large R icon using Google Images and edited the Bookmark's
+icon to appear as if it were R.  To do this, just copy the R icon from within
+Preview, select the icon of the Bookmark by right-clicking and selecting Get
+Info, and pasting using `Command+V`.
 
 
 {% img left http://gradstudents.wcas.northwestern.edu/~jaf502/images/ppc-r-preview.png 300 R Preview %}
@@ -148,4 +176,8 @@ Finally, this was dragged to the OS X dock, appearing just as if it were R on th
 
 {% img http://gradstudents.wcas.northwestern.edu/~jaf502/images/ppc-r-dock.png Fake Dock Icon %}
 
-It is worth noting that this solution is only important for users tied to OS X 10.5.8.  I've had great success with using [Fedora's PPC build](https://fedoraproject.org/wiki/Architectures/PowerPC?rd=Arch:PPC), which has packages compiled for PPC already.  However, as Linux is intimidating for many users, I chose to install RStudio Server on our lab server.
+It is worth noting that this solution is only important for users tied to OS X
+10.5.8.  I've had great success with using [Fedora's PPC
+build](https://fedoraproject.org/wiki/Architectures/PowerPC?rd=Arch:PPC), which
+has packages compiled for PPC already.  However, as Linux is intimidating for
+many users, I chose to install RStudio Server on our lab server.
