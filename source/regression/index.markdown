@@ -29,20 +29,20 @@ Based on these data, the researcher wishes to conduct analyses to answer each of
 ## 1.1
 Are judgments of liking for the candidate predictable from the respondent’s self judgment of liberalness/conservativeness?
 
-Model C:  $Like_i = \beta_0 + \epsilon_i$
+Model C:  Like_i = \beta_0 + \epsilon_i
 
-Model A:  $Like_i = \beta_0 + \beta_1 Self_i + \epsilon_i$
+Model A:  Like_i = \beta_0 + \beta_1 Self_i + \epsilon_i
 
-$F^*_{1,987} = H_0: \beta_1 = 0$
+F^*_{1,987} = H_0: \beta_1 = 0
 
 ## 1.2
 Are judgments of the candidate’s trustworthiness related to candidate evaluation even when controlling for the respondent’s own political persuasion?
 
-Model C:  $Like_i = \beta_0 + \beta_1 Self_i + \epsilon_i$
+Model C:  Like_i = \beta_0 + \beta_1 Self_i + \epsilon_i
 
-Model A:  $Like_i = \beta_0 + \beta_1 Self_i + \beta_2 Trust_i + \epsilon_i$
+Model A:  Like_i = \beta_0 + \beta_1 Self_i + \beta_2 Trust_i + \epsilon_i
 
-$F^*_{1,986} = H_0: \beta_2 = 0$
+F^*_{1,986} = H_0: \beta_2 = 0
 
 ## 1.3
 Are judgments of how the candidate is evaluated predictable from trustworthiness judgments less strongly among politically knowledgeable respondents?
@@ -176,7 +176,7 @@ p + geom_abline(intercept = (61.6 + 1.333 * -4.278), slope = (4.155 + (0.735 *
     1.333 * 4.278), slope = (4.155 + (0.735 * 4.278)), aes(colour = "3"))
 ```
 
-![plot of chunk unnamed-chunk-2](http://gradstudents.wcas.northwestern.edu/~jaf502/images/unnamed-chunk-2.png) 
+{% img http://gradstudents.wcas.northwestern.edu/~jaf502/images/unnamed-chunk-2.png %} 
 
 
 ## 2.2
@@ -235,7 +235,7 @@ p + layer(data = books.data, mapping = aes(x = Attend, y = Grade), stat = "smoot
     stat_params = list(method = "glm", formula = y ~ poly(x, 2)))
 ```
 
-![plot of chunk unnamed-chunk-3](http://gradstudents.wcas.northwestern.edu/~jaf502/images/unnamed-chunk-3.png) 
+{% img http://gradstudents.wcas.northwestern.edu/~jaf502/images/unnamed-chunk-3.png %}
 
 *Attendance* does not have a curvilinear relationship with Grades, $p = n.s.$
 
@@ -292,7 +292,7 @@ p + layer(data = books.data, mapping = aes(x = Books, y = Grade), stat = "smooth
     stat_params = list(method = "glm", formula = y ~ poly(x, 2)))
 ```
 
-![plot of chunk unnamed-chunk-4](http://gradstudents.wcas.northwestern.edu/~jaf502/images//unnamed-chunk-4.png) 
+{% img http://gradstudents.wcas.northwestern.edu/~jaf502/images//unnamed-chunk-4.png %}
 
 *Books* do not have a curvilinear relationship with Grades, $p = n.s.$
 
