@@ -27,7 +27,8 @@ Debian-based Distributions
 Full installation instructions for Ubuntu can be found
 [here](http://cran.rstudio.com/bin/linux/ubuntu/).  Luckily, CRAN mirrors have
 compiled binaries of R which can be installed using the apt-get package manager.
-To accomplish this, we'll first add the CRAN repo for Ubuntu packages to
+To accomplish this, we'll first add the [CRAN
+repo](http://cran.us.r-project.org/bin/linux/ubuntu/) for Ubuntu packages to
 `/etc/apt/sources.list`.  If you prefer to manually edit the sources.list file,
 you can do so by issuing the following in the terminal:
 
@@ -53,7 +54,8 @@ sudo apt-get install r-base r-dev
 
 ### Debian
 
-The instructions for installing R in Debian are similar to Ubuntu.  As the CRAN
+The instructions for installing R in Debian are similar to Ubuntu.  Regarding 'stable' 
+versions of Debian, the CRAN
 [README file](http://cran.rstudio.com/bin/linux/debian/README.html) for Debian
 points out: 
 
@@ -64,7 +66,7 @@ release contained in the official Debian release will become outdated as time
 passes.
 {% endblockquote %}
 
-Thus, we'll append the CRAN repository to the Debian list, just like
+Thus, we'll append the CRAN repository to the Debian list to update the available R version, just like
 we did for Ubuntu:
 
 ``` bash Installing R in Debian Stable
@@ -77,14 +79,20 @@ sudo apt-get update
 sudo apt-get install r-base r-base-dev
 ```
 
-Next, you can search for additional R packages in terminal using `apt-cache`:
+Finally, you can search for additional R packages in terminal using `apt-cache`:
 ``` bash Searching for R packages using apt-get
 apt-cache search ^r-.*
 ```
 
-### Installing RStudio 
-The RStudio package is compiled for both Debian and
-Ubuntu distributions.  Therefore, the installation instructions are the same.  Copy the link for the latest RStudio package from http://www.rstudio.com/ide/download/desktop (e.g., [http://download1.rstudio.org/rstudio-0.97.320-amd64.deb](http://download1.rstudio.org/rstudio-0.97.320-amd64.deb)).
+### Installing RStudio  
+
+Rstudio is a cross-platform user interface for R. The
+RStudio package is compiled for both Debian and Ubuntu distributions.
+Therefore, the installation instructions are the same.  Copy the link for the
+latest RStudio package from [http://www.rstudio.com/ide/download/desktop](http:/
+/www.rstudio.com/ide/download/desktop) (e.g., [http://download1.rstudio.org/rstu
+dio-0.97.320-amd64.deb](http://download1.rstudio.org/rstudio-0.97.320-amd64.deb)
+).
 
 ``` bash
 sudo apt-get install http://download1.rstudio.org/rstudio-0.97.320-amd64.deb
@@ -101,7 +109,7 @@ Special Interest Group that creates, maintains, and manages a high quality set
 of additional packages for Enterprise Linux, including, but not limited to, Red
 Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL).
 
-``` bash Installing EPEL
+``` bash Installing EPEL and R
 # For El5 or CentOS 5
 su -c 'rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm'
 sudo yum update
@@ -113,7 +121,7 @@ sudo yum update
 sudo yum install R
 ```
 
-Next, you can search for additional R packages in terminal using `yum`:
+Finally, you can search for additional R packages in terminal using `yum`:
 ``` bash Searching for R packages using yum
 yum list R-\*
 ```
@@ -187,3 +195,10 @@ It is worth noting that this solution is only important for users tied to OS X
 build](https://fedoraproject.org/wiki/Architectures/PowerPC?rd=Arch:PPC), which
 has packages compiled for PPC already.  However, as Linux is intimidating for
 many users, I chose to install RStudio Server on our lab server.
+
+Frequently Asked Questions
+==========================
+
+1.  I get an error that says I'm `not in the sudoers file`:  This means that you don't have access to install software on your machine.  Talk to your system administrator.  
+
+2.  I don't know if I'm running Ubuntu or Fedora.  How do I know which instructions to use?  Jokes aside, run `lsb_release -irc` in your terminal.
