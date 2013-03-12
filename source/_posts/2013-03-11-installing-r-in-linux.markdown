@@ -10,9 +10,15 @@ categories: [Linux, R, PPC]
 This guide is intended to faciliate the installation of up-to-date R packages
 for users new to either R or Linux.  Unlike Windows binaries or Mac packages,
 Linux software is often distributed as source-code and then compiled by package
-maintainers.  However, once the user gets used to using package managers such as
-[apt](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) or [yum](https://en.wikipedia.org/wiki/Yellowdog_Updater,_Modified) to install software, I'm confident they'll appreciate their ease of
-use.
+maintainers.  The use of package managers has many advantages that I won't 
+discuss here (see [Wikipedia](https://en.wikipedia.org/wiki/Package_management_system)).  
+More importantly, the difference can be initially intimidating.  
+However, once the user gets used to using package managers such as
+[apt](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) or 
+[yum](https://en.wikipedia.org/wiki/Yellowdog_Updater,_Modified) to install software, 
+I'm confident they'll appreciate their ease of use.
+
+These instructions are organized by system type.
 
 Debian-based Distributions
 --------------------------
