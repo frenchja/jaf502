@@ -14,7 +14,7 @@ Before we begin, if you're using this R Guide I'm assuming some previous knowled
   1.  **You're familiar with how to enter basic commands.**  If not, there are plenty of tutorials regarding this, [many of which](http://personality-project.org/r/) are written by my adviser, [Bill Revelle](https://en.wikipedia.org/wiki/William_Revelle).  I don't want to redo what he has more successfully done.
   2.  **The dataset was successfully entered into R.**  If not, once again Bill comes to the rescue with [his guide](http://personality-project.org/r/#getdata).  I'm generally a fan of exporting my data as a .csv file and using the [`read.csv()`](http://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.table.html) function (.e.g, `data <- read.csv(mydata.csv)`).  However, if you're a fan of Excel, you'll find Bill's [`read.clipboard()`](http://www.personality-project.org/r/html/read.clipboard.html) function in the [`psych`](http://cran.r-project.org/web/packages/psych/index.html) package helpful.
   3.  **You understand basic equation notation.**  Essentially, `Data = Model + Error`.  The parameters (or variables) in our model are often denoted by &beta;, and the error by &epsilon;.
-  4.  **You understand why we test hypotheses using two models.**  If I want to look at the impact of Ability on Grades while controlling for family SES, I have to *control for* SES.  So our most basic mode would be Grades ~ SES, and we test whether Grades ~ SES + Ability is a better model, 
+  4.  **You understand why we test hypotheses using two models.**  If I want to look at the impact of Ability on Grades despite differences in family SES, I have to *control for* SES.  So our most basic model would be Grades ~ SES, and we test whether Grades ~ SES + Ability is a better model, 
 
 Now that we're up to speed, I've organized this tutorial as a series of realistic situations that one might encounter.  Part 1 shows how to specify your models to do hypothesis testing and does not require R.  The second and third parts demonstrate how to use R to test for an interaction, curvilinear effect, and finally test whether a *set* of variables are significant.
 
@@ -101,8 +101,10 @@ Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Diff<sub>i<
 
 F^*<sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
 
-Part 2:  The Effect of Books and Attendance on Grades
+Part 2:  Testing for Interactions
 ----------------------------
+
+### The Effect of Books and Attendance on Grades
 
 [Download]() this example dataset.  In this section, we'll look at the influence of Books and Attendance on one's Grades.  However, one might hypothesize that the number of books you read has a larger impact on your grade if you bother attending lecture more often.  If we're hypothesizing that people who attend class get more out of the books versus the students who don't attend and use them to cram at the end of the quarter or semester, we need to test for an *interaction* of Books x Classes, over and above the *main effects* of `Books` and `Classes` on our dependant variable, `Grades`.
 
@@ -164,26 +166,27 @@ anova(books.lm)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
+In sum, we have signficant *main effects* of both Books (F(1,36) = 14.57, *p* < 0.001) and Attendance (F(1,36) = 5.22, *p* < .03).  However, this relation between Grades and Books depends on how many classes you attend (F(1,36) = 4.43, *p* < .05).
 
-Sometimes graphs can help us conceptulize what this interaction means.  I will graph the interaction as a series of simple relationships, which we'll derive using a bit of math.  As our main equation is \hat{Grade} = (61.60 + 1.333Attend_0) + (4.155*(0.735*Attend_0))Books_0, we'll plug in values for Attend to change the simple slope.
+### Graphing the Interaction
+
+Sometimes graphs can help us conceptualize what this interaction means.  I will graph the interaction as a series of simple relationships, which we'll derive using a bit of math.  As our main equation is \hat{Grade} = (61.60 + 1.333Attend<sub>0</sub>) + (4.155 x (0.735 x Attend<sub>0</sub>))Books<sub>0</sub>, we'll plug in values for Attend to change the simple slope.
 
 I will graph `Grade` by the centered `Books` at 1) the centered `Attend`, 2) one standard deviation below from the average `Attend` (i.e., 4.278 days *missed*), and 3) one standard deviation above from the average `Attend` (4.278 days attended).  The three lines correspond to the three equations below:
 
+If we plug in three representative values of Attend<sub>0</sub>...
 
+Attend<sub>0</sub> = -4.278
 
-If we plug in three representative values of Attend_0...
+Grade&#770; = (61.60 + 1.333 x -4.278) + (4.155 + (0.735 x -4.278))*Books<sub>0</sub>
 
-Attend-0 = -4.278
+Attend<sub>0</sub> =0
 
-\hat{Grade} = (61.60 + 1.333*-4.278) + (4.155 + (0.735*-4.278))*Books_0
+Grade&#770; = (61.60 + 1.333 x 0) +(4.155+(0.735 x 0)) x Books_0
 
-Attend_0 =0
+Attend<sub>0</sub> = 4.278
 
-\hat{Grade} = (61.60 + 1.333*0) +(4.155+(0.735*0))*Books_0
-
-Attend_0 = 4.278
-
-\hat{Grade} = (61.60 + 1.333*4.278) + (4.155 + (0.735*4.278))*Books_0
+Grade&#770; = (61.60 + 1.333 x 4.278) + (4.155 + (0.735 x 4.278)) x Books<sub>0</sub>
 
 ### Interpreting the interaction
 
@@ -205,7 +208,7 @@ p + geom_abline(intercept = (61.6 + 1.333 * -4.278), slope = (4.155 + (0.735 *
 Next we test if either `Books` or `Classes` has a curvilinear (quadratic) effect in the prediction of `Grade`.  To help the reader, I provide graphs of these results.
 
 ### Let's do Grades ~ Attend first
-\hat{Grade} = b_0 + b_1 Attend + b_2 Attend^2
+Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Attend + b<sub>2</sub> Attend^2
 
 
 ```r Regression of Grade ~ Attend + Attend^2
@@ -263,7 +266,7 @@ p + layer(data = books.data, mapping = aes(x = Attend, y = Grade), stat = "smoot
 
 ### Next, we'll test Grades ~ Books
 
-\hat{Grade} = b_0 + b_1 Books + b_2 Books^2
+Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Books + b<sub>2</sub> Books^2
 
 ```r
 books.lm2 <- lm(Grade ~ Books + I(Books^2), data = books.data)
@@ -320,11 +323,11 @@ p + layer(data = books.data, mapping = aes(x = Books, y = Grade), stat = "smooth
 
 ## The Final Countdown:  Testing sets of parameters
 
-Download the file [here]().  I test to see whether the set of predictors “Burglary” and “Auto”(Theft) add to the prediction of “Murder” once “Assault” and “Robbery” are taken into account (i.e., “over and above Assault and Robbery”).
+Download the file [here]().  I test to see whether the set of predictors "Burglary" and "Auto"(Theft) add to the prediction of "Murder"”" once "Assault" and "Robbery" are taken into account (i.e., "over and above Assault and Robbery").
 
-Model C: \hat{Murder} = b_0 + b_1 Assault + b_2 Robbery
+Model C: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Assault + b<sub>2</sub> Robbery
 
-Model A: \hat{Murder} = b_0 + b_1 Burglary + b_2 Auto + b_3 Assault + b_4 Robbery
+Model A: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Burglary + b<sub>2</sub> Auto + b<sub>3</sub> Assault + b<sub>4</sub> Robbery
 
 ```r Regressing Murder onto Assault and Robbery
 murder.data <- read.csv(header = TRUE, file = "Crime.csv")
