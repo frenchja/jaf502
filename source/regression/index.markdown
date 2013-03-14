@@ -21,7 +21,7 @@ Now that we're up to speed, I've organized this tutorial as a series of realisti
 Part 1:  Hypothesis Testing
 -------
 
-Using multiple regression in R involves testing specific models.  Unless your models are setup correctly, the significant difference between two models may not lead to the inference you think it does!  Unfortunately, the US learned this the hard way.  The fear of fat, which reached its height during the 1980s and 1990s, was due to a faulty regression submitted to the FDA.  The researcher tested whether levels of fat and sugar predicted rates of cardiovascular disease but never partialled out the effect of sugar (which was the real problem).  Thus, due to the witch hunt against fat, food manufactures began offered low-fat varieties of everything.  However, there are only so many things to get taste and calories from.  When you remove the fat from a food, you have to add a lot of sucrose/fructose to make up for the lack of flavor.  Thus, rates of heart disease continued to climb because of bad regression (see [Lustig's 2009 colloquium](http://www.uctv.tv/search-details.aspx?showID=16717)).
+Using multiple regression in R involves testing specific models.  Unless your models are setup correctly, the significant difference between two models may not lead to the inference you think it does!  Unfortunately, the US learned this the hard way.  The fear of fat, which reached its height during the 1980s and 1990s, was due to a faulty regression submitted to the FDA.  The researcher tested whether levels of fat and sugar predicted rates of cardiovascular disease but never partialled out the effect of sugar (which was the real problem).  Thus, due to the witch hunt against fat, food manufacturers offered low-fat varieties of everything.  However, there are only so many things to get taste and calories from.  When you remove the fat from a food, you have to add a lot of sucrose/fructose to make up for the lack of flavor.  Thus, rates of heart disease continued to climb because of bad regression (see [Lustig's 2009 colloquium](http://www.uctv.tv/search-details.aspx?showID=16717)).
 
 Consider the following situation involving judgements about political candidates.  Here, I specify what the various models would be.  You can plug in your own variables from your data to follow along.
 
@@ -41,7 +41,7 @@ A political scientist is interested in factors influencing judgments of politica
 
 Based on these data, I conduct analyses to answer each of the following questions. For each question, I indicate the compact and augmented models that should be compared to answer the question and state the null hypothesis being tested. 
 
-In addition, indicated the degrees of freedom associated with the F* that would be used to evaluate each hypothesis. Some of these questions may require that you construct new variables out of the five that were measured.
+In addition, indicated the degrees of freedom associated with the F* that would be used to evaluate each hypothesis. Some of these questions require we construct new variables out of the five that were measured.
 
 **Are judgments of liking for the candidate predictable from the respondent’s self judgment of liberalness/conservativeness?**
 
@@ -170,7 +170,7 @@ In sum, we have signficant *main effects* of both Books (F(1,36) = 14.57, *p* < 
 
 ### Graphing the Interaction
 
-Sometimes graphs can help us conceptualize what this interaction means.  I will graph the interaction as a series of simple relationships, which we'll derive using a bit of math.  As our main equation is \hat{Grade} = (61.60 + 1.333Attend<sub>0</sub>) + (4.155 x (0.735 x Attend<sub>0</sub>))Books<sub>0</sub>, we'll plug in values for Attend to change the simple slope.
+Sometimes graphs can help us conceptualize what this interaction means.  I will graph the interaction as a series of simple relationships, which we'll derive using a bit of math.  As our main equation is Grade&#770; = (61.60 + 1.333Attend<sub>0</sub>) + (4.155 x (0.735 x Attend<sub>0</sub>))Books<sub>0</sub>, we'll plug in values for Attend to change the simple slope.
 
 I will graph `Grade` by the centered `Books` at 1) the centered `Attend`, 2) one standard deviation below from the average `Attend` (i.e., 4.278 days *missed*), and 3) one standard deviation above from the average `Attend` (4.278 days attended).  The three lines correspond to the three equations below:
 
@@ -204,10 +204,12 @@ p + geom_abline(intercept = (61.6 + 1.333 * -4.278), slope = (4.155 + (0.735 *
 
 {% img http://gradstudents.wcas.northwestern.edu/~jaf502/images/unnamed-chunk-2.png %} 
 
+### Testing for Curvilinear Effects
 
 Next we test if either `Books` or `Classes` has a curvilinear (quadratic) effect in the prediction of `Grade`.  To help the reader, I provide graphs of these results.
 
-### Let's do Grades ~ Attend first
+**Let's do Grades ~ Attend first**
+
 Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Attend + b<sub>2</sub> Attend^2
 
 
@@ -264,11 +266,11 @@ p + layer(data = books.data, mapping = aes(x = Attend, y = Grade), stat = "smoot
 
 *Attendance* does not have a curvilinear relationship with Grades, *p* = n.s.
 
-### Next, we'll test Grades ~ Books
+**Next, we'll test Grades ~ Books**
 
 Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Books + b<sub>2</sub> Books^2
 
-```r
+```r Regressing Grades ~ Books
 books.lm2 <- lm(Grade ~ Books + I(Books^2), data = books.data)
 summary(books.lm2)
 ```
@@ -295,7 +297,7 @@ summary(books.lm2)
 ## F-statistic: 5.92 on 2 and 37 DF,  p-value: 0.00588
 ```
 
-```r
+```r Effects Tests for Parameters
 anova(books.lm2)
 ```
 
@@ -311,7 +313,7 @@ anova(books.lm2)
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
 
-```r
+```r Plotting the Curvilinear Effect of Grades ~ Books + Books^2
 p <- qplot(x = Books, y = Grade, data = books.data, main = "Polynomial Fit of Grade ~ Books")
 p + layer(data = books.data, mapping = aes(x = Books, y = Grade), stat = "smooth", 
     stat_params = list(method = "glm", formula = y ~ poly(x, 2)))
@@ -323,7 +325,7 @@ p + layer(data = books.data, mapping = aes(x = Books, y = Grade), stat = "smooth
 
 ## The Final Countdown:  Testing sets of parameters
 
-Download the file [here]().  I test to see whether the set of predictors "Burglary" and "Auto"(Theft) add to the prediction of "Murder"”" once "Assault" and "Robbery" are taken into account (i.e., "over and above Assault and Robbery").
+Download the file [here]().  I test to see whether the set of predictors "Burglary" and "Auto"(Theft) add to the prediction of "Murder" once "Assault" and "Robbery" are taken into account (i.e., "over and above Assault and Robbery").
 
 Model C: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Assault + b<sub>2</sub> Robbery
 
