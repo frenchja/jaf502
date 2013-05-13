@@ -43,46 +43,87 @@ Based on these data, I conduct analyses to answer each of the following question
 
 In addition, indicated the degrees of freedom associated with the F* that would be used to evaluate each hypothesis. Some of these questions require we construct new variables out of the five that were measured.
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Are judgments of liking for the candidate predictable from the respondent’s self judgment of liberalness/conservativeness?**
 
 Model C: Like<sub>i</sub> = &beta;<sub>0</sub> + &epsilon;<sub>i</sub>
 
 Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &epsilon;<sub>i</sub>
+=======
+Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &#949;<sub>i</sub>
+
+Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &#949;<sub>i</sub>
+
+F<sup>*</sup><sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 F^*<sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Are judgments of the candidate’s trustworthiness related to candidate evaluation even when controlling for the respondent’s own political persuasion?**
 
 Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &epsilon;<sub>i</sub>
 
 Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Trust<sub>i</sub> + &epsilon;<sub>i</sub>
+=======
+Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &#949;<sub>i</sub>
+
+Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Trust<sub>i</sub> + &#949;<sub>i</sub>
+
+F^*<sub>{1,986}</sub> = H<sub>0</sub>: &beta;<sub>2</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 F^*<sub>{1,986}</sub> = H<sub>0</sub>: &beta;<sub>2</sub> = 0
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Are judgments of how the candidate is evaluated predictable from trustworthiness judgments less strongly among politically knowledgeable respondents?**
 
 Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Trust<sub>i</sub> + &beta;<sub>2</sub> Know<sub>i</sub> + &epsilon;<sub>i</sub>
 
 Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Trust<sub>i</sub> + &beta;<sub>2</sub> Know<sub>i</sub> + &beta;<sub>3</sub> (Know<sub>i</sub>)(Trust<sub>i</sub>) + &epsilon;<sub>i</sub>
+=======
+Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Trust<sub>i</sub> + &beta;<sub>2</sub> Know<sub>i</sub> + &#949;<sub>i</sub>
+
+Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Trust<sub>i</sub> + &beta;<sub>2</sub> Know<sub>i</sub> + &beta;<sub>3</sub> (Know<sub>i</sub>)(Trust<sub>i</sub>) + &#949;<sub>i</sub>
+
+F<sup>*</sup><sub>{1,985}</sub> = H<sub>0</sub>: &beta;<sub>3</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 F^*<sub>{1,985}</sub> = H<sub>0</sub>: &beta;<sub>3</sub> = 0
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Do those respondents whose political views are relatively extreme in either a liberal or conservative direction, like the candidate less well than those who are more moderate, even controlling for the fact that liberals prefer the candidate to those who are more conservative?**
 
 Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &epsilon;<sub>i</sub>
 
 Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Self^2<sub>i</sub> + &epsilon;<sub>i</sub>
+=======
+Model C:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &#949;<sub>i</sub>
+
+Model A:  Like<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Self<sup>2</sup><sub>i</sub> + &#949;<sub>i</sub>
+
+F<sup>*</sup><sub>{1,986}</sub> = H<sub>0</sub>: &beta;<sub>2</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 F^*<sub>{1,986}</sub> = H<sub>0</sub>: &beta;<sub>2</sub> = 0
 
+<<<<<<< HEAD:source/regression/index.markdown
 **On average, do respondents assimilate judgments of the candidate’s position to their own position? That is, the more liberal respondents are, the more they judge the candidate to be liberal. The more conservative respondents are, the more conservative they judge the candidate to be.**
 
 Model C:  Cand<sub>i</sub></sub> = &beta;<sub>0</sub> + &epsilon;<sub>i</sub>
 
 Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &epsilon;<sub>i</sub>
+=======
+Model C:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &#949;<sub>i</sub>
+
+Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &#949;<sub>i</sub>
+
+F<sup>*</sup><sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 F^*<sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Does the extent to which respondents assimilate judgments of the candidate’s position to their own depend on the degree to which they like or dislike the candidate? Those who relatively like the candidate assimilate the candidate’s position to their own more strongly than those who like the candidate less well.**
 
 Model C:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Like<sub>i</sub> + &epsilon;<sub>i</sub>
@@ -96,6 +137,23 @@ F^*<sub>{1,985}</sub> = H<sub>0</sub>: &beta;<sub>3</sub> = 0
 First, create a new variable:  Diff<sub>i</sub> = |Self<sub>i</sub> - Cand<sub>i</sub>|
 
 Model C:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &epsilon;<sub>i</sub>
+=======
+Model C:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Like<sub>i</sub> + &#949;<sub>i</sub>
+
+Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Self<sub>i</sub> + &beta;<sub>2</sub> Like<sub>i</sub> + &beta;<sub>3</sub> (Self<sub>i</sub>)(Like<sub>i</sub>) + &#949;<sub>i</sub>
+
+F^*<sub>{1,985}</sub> = H<sub>0</sub>: &beta;<sub>3</sub> = 0
+
+## 1.7
+Is liking for the candidate predictable from knowledge of the absolute difference between the respondent’s judgment of his or her own political position and his or her judgment of the candidate’s political position?
+First, create a new variable:  Diff<sub>i</sub> = |Self<sub>i</sub> - Cand<sub>i</sub>|
+
+Model C:  Cand<sub>i</sub> = &beta;<sub>0</sub> + Error<sub>i</sub>
+
+Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Diff<sub>i</sub> + &#949;<sub>i</sub>
+
+F<sup>*</sup><sub>{1,987}</sub> = H<sub>0</sub>: &beta;<sub>1</sub> = 0
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Model A:  Cand<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub> Diff<sub>i</sub> + &epsilon;<sub>i</sub>
 
@@ -174,21 +232,37 @@ Sometimes graphs can help us conceptualize what this interaction means.  I will 
 
 I will graph `Grade` by the centered `Books` at 1) the centered `Attend`, 2) one standard deviation below from the average `Attend` (i.e., 4.278 days *missed*), and 3) one standard deviation above from the average `Attend` (4.278 days attended).  The three lines correspond to the three equations below:
 
+<<<<<<< HEAD:source/regression/index.markdown
 If we plug in three representative values of Attend<sub>0</sub>...
+=======
+Grade&#770; = (61.60 + 1.333Attend<sub>0</sub>) + (4.155*(0.735*Attend<sub>0</sub>))Books<sub>0</sub>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Attend<sub>0</sub> = -4.278
 
 Grade&#770; = (61.60 + 1.333 x -4.278) + (4.155 + (0.735 x -4.278))*Books<sub>0</sub>
 
+<<<<<<< HEAD:source/regression/index.markdown
 Attend<sub>0</sub> =0
+=======
+Grade&#770; = = (61.60 + 1.333*-4.278) + (4.155 + (0.735*-4.278))*Books<sub>0</sub>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Grade&#770; = (61.60 + 1.333 x 0) +(4.155+(0.735 x 0)) x Books_0
 
+<<<<<<< HEAD:source/regression/index.markdown
 Attend<sub>0</sub> = 4.278
+=======
+Grade&#770; = (61.60 + 1.333*0) +(4.155+(0.735*0))*Books<sub>0</sub>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Grade&#770; = (61.60 + 1.333 x 4.278) + (4.155 + (0.735 x 4.278)) x Books<sub>0</sub>
 
+<<<<<<< HEAD:source/regression/index.markdown
 ### Interpreting the interaction
+=======
+Grade&#770; = (61.60 + 1.333*4.278) + (4.155 + (0.735*4.278))*Books<sub>0</sub>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 For the people who attended fewer classes than average, the number of textbooks they read was rather weakly related with their grade.  On the other hand, for the people who attended more classes than average, the number of textbooks they read had a strong positive relationship with their grade. 
 
@@ -208,7 +282,12 @@ p + geom_abline(intercept = (61.6 + 1.333 * -4.278), slope = (4.155 + (0.735 *
 
 Next we test if either `Books` or `Classes` has a curvilinear (quadratic) effect in the prediction of `Grade`.  To help the reader, I provide graphs of these results.
 
+<<<<<<< HEAD:source/regression/index.markdown
 **Let's do Grades ~ Attend first**
+=======
+### Let's do Grades ~ Attend first
+Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Attend + b<sub>2</sub> Attend<sup>2</sup>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Attend + b<sub>2</sub> Attend^2
 
@@ -268,7 +347,11 @@ p + layer(data = books.data, mapping = aes(x = Attend, y = Grade), stat = "smoot
 
 **Next, we'll test Grades ~ Books**
 
+<<<<<<< HEAD:source/regression/index.markdown
 Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Books + b<sub>2</sub> Books^2
+=======
+Grade&#770; = b<sub>0</sub> + b<sub>1</sub> Books + b<sub>2</sub> Books<sup>2</sup>
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 ```r Regressing Grades ~ Books
 books.lm2 <- lm(Grade ~ Books + I(Books^2), data = books.data)
@@ -325,9 +408,15 @@ p + layer(data = books.data, mapping = aes(x = Books, y = Grade), stat = "smooth
 
 ## The Final Countdown:  Testing sets of parameters
 
+<<<<<<< HEAD:source/regression/index.markdown
 Download the file [here]().  I test to see whether the set of predictors "Burglary" and "Auto"(Theft) add to the prediction of "Murder" once "Assault" and "Robbery" are taken into account (i.e., "over and above Assault and Robbery").
 
 Model C: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Assault + b<sub>2</sub> Robbery
+=======
+Model C: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Assault + b<sub>2</sub> Robbery
+
+Model A: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Burglary + b<sub>2</sub> Auto + b<sub>3</sub> Assault + b<sub>4</sub> Robbery
+>>>>>>> Tutorials:source/tutorials/regression.markdown
 
 Model A: Murder&#770; = b<sub>0</sub> + b<sub>1</sub> Burglary + b<sub>2</sub> Auto + b<sub>3</sub> Assault + b<sub>4</sub> Robbery
 
